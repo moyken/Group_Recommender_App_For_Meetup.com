@@ -4,6 +4,8 @@ library(lubridate)
 library(ggplot2)
 library(tidyr)
 library(iterators)
+install.packages('rsconnect')
+library(rsconnect)
 
 meetup <- read.csv('meetup.csv', stringsAsFactors = FALSE)
 meetup$X <- NULL
@@ -190,7 +192,7 @@ is_subset <- function(LL, L){
 
 # Boolean of whether LHS in rules_df row is a subset
 filter_rules <- unlist(lapply(rules_df$LHS, is_subset, interested_topics))
-#View(rules_df[filter_rules == TRUE,])
+View(rules_df[filter_rules == TRUE,])
 filter_rules
 
 
